@@ -8,9 +8,8 @@ This is the official code repository of the work "Fragment-aware contrastive lea
 ##
 Follow the below steps for dependency installation.
 ```
-# clone the source code of FACL-Propred
 git clone https://github.com/XM001-hub/FACL-propred.git
 cd FACL-propred
-
+conda env create -f environment.yml
 ```
 
