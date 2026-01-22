@@ -12,6 +12,8 @@ cd FACL-propred
 conda env create -f environment.yml
 ```
 **Data**  
-The raw data used for pre-training and fine-tuning are under ./dataset folder.
+The raw data used for pre-training and fine-tuning are under ./dataset folder. You can also download the processed data from here.  
+**Procompute**
+You can also prepare your customized dataset for pretraining.
 
 
