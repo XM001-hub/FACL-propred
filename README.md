@@ -12,7 +12,8 @@ cd FACL-propred
 conda env create -f environment.yml
 ```
 **Data**  
-The raw data used for pre-training and fine-tuning are under ./dataset folder. You can also download the processed data from here.  
+The raw data used for pre-training and fine-tuning are under ./dataset folder.
+
 ***FGIB Training***  
 ```
 cd torch_fgib
@@ -24,5 +25,8 @@ You can also prepare your customized dataset for pretraining.
 ```
 python precompute.py
 ```
+This command will generate the required lmdb files for pre-training.
+
+***Pre-training***
 
 
