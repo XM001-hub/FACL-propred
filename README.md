@@ -11,6 +11,7 @@ git clone https://github.com/XM001-hub/FACL-propred.git
 cd FACL-propred
 conda env create -f environment.yml
 ```
-**Data**
+**Data**  
+The raw data used for pre-training and fine-tuning are under ./dataset folder.
 
 
