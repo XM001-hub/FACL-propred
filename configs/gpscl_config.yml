@@ -1,0 +1,87 @@
+gps:
+  input_atom_dims: 130
+  input_bond_dims: 10
+  hidden_dims: 130
+  project_dims: 300
+  num_heads: 5
+  mpnn: CMPNN
+  activation: tanh # ReLU, LeakyReLU, PReLU, tanh, SELU, ELU
+  mp_bias: False
+  mp_depth: 3
+  undirected: False
+  features_only: False
+  use_input_features: False
+  layer_norm: True
+  batch_norm: False
+  dropout: 0.0
+  attn_dropout: 0.0
+  atom_messages: False
+  cuda: True
+  log_attn_weights: False
+
+CMPNN:
+  dropout:
+  undirected:
+  atom_messages:
+  features_only:
+  use_input_features:
+
+loss:
+  temperature: 0.1
+  device: cuda:0
+
+classification: False
+multiclass: False
+augmentation: True
+graph_input: False
+
+
+BatchMolGraph:
+  atom_messages: False
+  emb:
+    node_hidden_dim: 300
+    edge_hidden_dim: 42
+    MP_step: 3
+
+dict_path: /home/rujinxiao/Desktop/GPSCL-main/output/frag_emb.pickle
+log_dir: /home/rujinxiao/Desktop/GPSCL-main/log/gpscl_checkpoints
+wandb_dir: /home/rujinxiao/Desktop/GPSCL-main/wandb_log
+run_name: gpscl
+atom_messages: False
+alpha: 0.2
+beta: 1e-2
+
+dataset:
+  batch_size: 128
+  root: /home/rujinxiao/Desktop/GPSCL-main/dataset
+  split: scaffold
+  split_path: /home/rujinxiao/Desktop/GPSCL-main/dataset/ZINC_250k/scaffold.pickle
+
+optimizer:
+  lr: 1.5e-3 # 1.5e-4
+  decay: 1.e-6 # 1.e-8
+  patience: 5
+
+frag:
+  seed: 2024
+  batch_size: 256
+  node_input_dim: 130
+  node_hidden_dim: 130
+  edge_input_dim: 10
+  edge_hidden_dim: 42
+  MP_steps: 3
+  MP_dropout: 0.0
+  fingerprint_bits: 679
+  regression: 1613
+  frag: pool
+  beta: 1e-5
+  alpha: 0.25
+  optimizer:
+    type: adamw
+    lr1: 1.0e-3 # 1.5e-4 when pretraining fgib_model
+    lr2: 1.0e-5
+    weight_decay: 1.e-8
+    patience: 20
+
+
+

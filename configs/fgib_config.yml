@@ -1,0 +1,41 @@
+model:
+  seed: 2025
+  node_input_dim: 130
+  node_hidden_dim: 130
+  edge_input_dim: 10
+  edge_hidden_dim: 42
+  MP_steps: 3
+  MP_dropout: 0.0
+  fingerprint_bits: 679
+  regression: 1613
+  frag: pool
+  beta: 1e-5
+  alpha: 0.25
+
+optimizer:
+  type: adamw
+  lr: 1e-5 # 1.5e-4 when training
+  weight_decay: 1.e-8
+  patience: 20
+
+dataset:
+  name: ZINC
+  root: /home/rujinxiao/Desktop/GPSCL-main/dataset
+  split: random
+  batch_size: 128
+  path_dict:
+    smiles: smiles.csv
+    processed: processed.lmdb
+    split: scaffold.pkl
+
+wandb_params:
+  mode: 'online' # disabled, offline, online
+  entity: 'rujinxiao'
+
+run_name: frag_emb
+logdir: /home/rujinxiao/Desktop/GPSCL-main/log
+wandb_dir: /home/rujinxiao/Desktop/GPSCL-main/wandb_log
+resume: None
+seed: 2025
+
+
