@@ -3,6 +3,9 @@
 ##
 This is the official code repository of the work "Fragment-aware contrastive learning framework for molecular property prediction".
 
+![figure 1](https://github.com/user-attachments/assets/ee1dfb12-36b5-457e-8598-d49a20a8f682)
+
+
 ## Quick Start
 **Installation**  
 Follow the below steps for dependency installation.
@@ -20,13 +23,34 @@ cd torch_fgib
 python train_fgib.py
 ```
 
-**Precompute**  
-You can also prepare your customized dataset for pretraining.
+**Dataset**
+
+During the data preparation phase, you could prepare your customized fragments database for contrastive pairs. You can use the following code to generate fragments in different scenarios (taking the radius of context set to 0 as an example):
 ```
-python precompute.py
+python create_frag_env_db.py -smiles_path ‘/Path/to/smiles.csv’ -radius 0
 ```
-This command will generate the required lmdb files for pre-training.
+After obtaining the fragment data, performing pre-computations on the ZINC database is necessary, as it can significantly accelerate the pre-training process. To this end, you can run the following code to calculate molecular contrastive pairs:
+```
+python precompute.py -smiles_path ‘/Path/to/smiles.csv’ -fragment_path ‘/Path/to/core_fragments.db’
+```
 
 ***Pre-training***
+The configuration for pre-training, including model backbone, number of layers, and etc., can all be specified in `./config/facl_config.yml` file. After the configuration file is setup, simply run the following command for training.
+```
+python pretrain.py 
+```
+The pre-trained model obtained using this command will be saved in the output directory. Additionally, the pre-trained models we provide can be downloaded [here](https://drive.google.com/drive/folders/1n9RFJVajxdUglznCqaYT9s1cOp2IHlOg?usp=sharing)
+
+***Fine-tuning***
+After obtaining the pre-trained model, we provide two methods for fine-tuning it for downstream tasks. Without modifying the FGIB module, you can run the following command to improve the model for a downstream dataset.
+```
+python finetune.py
+```
+If fine-tuning of the FGIB module is required, run the following command. Typically, this approach yields improved prediction performance.
+```
+Python dual_finetune.py
+```
+
+
 
 
