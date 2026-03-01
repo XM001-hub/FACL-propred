@@ -3,7 +3,8 @@
 ##
 This is the official code repository of the work "Fragment-aware contrastive learning framework for molecular property prediction".
 
-![figure 1](https://github.com/user-attachments/assets/ee1dfb12-36b5-457e-8598-d49a20a8f682)
+![示意图](https://github.com/user-attachments/assets/afec4778-ebfa-49f0-bd74-05542e2a7ffe)
+
 
 
 ## Quick Start
@@ -23,7 +24,7 @@ cd torch_fgib
 python train_fgib.py
 ```
 
-**Dataset**
+**Dataset**  
 
 During the data preparation phase, you could prepare your customized fragments database for contrastive pairs. You can use the following code to generate fragments in different scenarios (taking the radius of context set to 0 as an example):
 ```
@@ -34,14 +35,14 @@ After obtaining the fragment data, performing pre-computations on the ZINC datab
 python precompute.py -smiles_path ‘/Path/to/smiles.csv’ -fragment_path ‘/Path/to/core_fragments.db’
 ```
 
-***Pre-training***
+***Pre-training***  
 The configuration for pre-training, including model backbone, number of layers, and etc., can all be specified in `./config/facl_config.yml` file. After the configuration file is setup, simply run the following command for training.
 ```
 python pretrain.py 
 ```
 The pre-trained model obtained using this command will be saved in the output directory. Additionally, the pre-trained models we provide can be downloaded [here](https://drive.google.com/drive/folders/1n9RFJVajxdUglznCqaYT9s1cOp2IHlOg?usp=sharing)
 
-***Fine-tuning***
+***Fine-tuning***  
 After obtaining the pre-trained model, we provide two methods for fine-tuning it for downstream tasks. Without modifying the FGIB module, you can run the following command to improve the model for a downstream dataset.
 ```
 python finetune.py
