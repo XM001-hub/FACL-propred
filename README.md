@@ -28,11 +28,11 @@ python train_fgib.py
 
 During the data preparation phase, you could prepare your customized fragments database for contrastive pairs. You can use the following code to generate fragments in different scenarios (taking the radius of context set to 0 as an example):
 ```
-python create_frag_env_db.py -smiles_path ‘/Path/to/smiles.csv’ -radius 0
+python create_frag_env_db.py -smiles_path '/Path/to/smiles.csv' -db_path '/Path/to/core_fragments.db' -radius 0
 ```
 After obtaining the fragment data, performing pre-computations on the ZINC database is necessary, as it can significantly accelerate the pre-training process. To this end, you can run the following code to calculate molecular contrastive pairs:
 ```
-python precompute.py -smiles_path ‘/Path/to/smiles.csv’ -fragment_path ‘/Path/to/core_fragments.db’
+python precompute.py -smiles_path '/Path/to/smiles.csv' -fragment_path '/Path/to/core_fragments.db'
 ```
 
 ***Pre-training***  
