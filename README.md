@@ -138,4 +138,3 @@ The complete citation and BibTeX entry can be added here when they become availa
 Thank you for your interest in FACL-PropPred. Questions, bug reports, and contributions are welcome through GitHub Issues and Pull Requests.
 
 
-
